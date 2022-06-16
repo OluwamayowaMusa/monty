@@ -34,8 +34,19 @@ void argument_error(void)
  * stack_error - Error due to empty stack
  *
  */
-void stack_error(void)
+void pint_error(void)
 {
 	fprintf(stderr, "L%d: can't pint, Stack empty\n", lineNumber);
+	exit(EXIT_FAILURE);
+}
+
+
+/**
+ * pop_error - Error due to pop
+ *
+ */
+void pop_error(void)
+{
+	fprintf(stderr, "L%d: can't pop an empty stack\n", lineNumber);
 	exit(EXIT_FAILURE);
 }
