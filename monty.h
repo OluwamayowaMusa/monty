@@ -52,6 +52,7 @@ int check_digit(char *s);
 void malloc_error(void);
 void instruction_error(char *s);
 void argument_error(void);
+void stack_error(void);
 
 /* MEMORY LEAKS FUNCTIONS*/
 void free_args(char **args);
@@ -60,7 +61,9 @@ void free_stack(stack_t *h);
 /* OPCODE FUNCTIONS */
 void op_push(stack_t **stack, unsigned int data);
 void op_pall(stack_t **stack, unsigned int data);
+void op_pint(stack_t **stack, unsigned int data);
 int op_cmp(char *s);
+
 
 /* GET OPCODE FUNCTIONS */
 void (*get_op_func(char *s))(stack_t **, unsigned int);

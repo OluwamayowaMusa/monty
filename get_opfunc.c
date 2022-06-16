@@ -11,6 +11,7 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 	instruction_t array_func[] = {
 		{"push", op_push},
 		{"pall", op_pall},
+		{"pint", op_pint},
 		{NULL, NULL}
 	};
 	int i;

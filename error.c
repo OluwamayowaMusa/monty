@@ -28,3 +28,14 @@ void argument_error(void)
 	fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
 	exit(EXIT_FAILURE);
 }
+
+
+/**
+ * stack_error - Error due to empty stack
+ *
+ */
+void stack_error(void)
+{
+	fprintf(stderr, "L%d: can't pint, Stack empty\n", lineNumber);
+	exit(EXIT_FAILURE);
+}
