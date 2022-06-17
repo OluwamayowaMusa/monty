@@ -28,7 +28,6 @@ void op_push(stack_t **stack, unsigned int data)
 	newStack->next = *stack;
 	(*stack)->prev = newStack;
 	*stack = newStack;
-	return;
 }
 
 
@@ -59,7 +58,7 @@ void op_pall(stack_t **stack, unsigned int __attribute__((unused)) data)
  */
 int op_cmp(char *s)
 {
-	char *arr[] = {"pall", "pint", "pop", NULL};
+	char *arr[] = {"pall", "pint", "pop", "swap", NULL};
 	int i;
 
 	for (i = 0; arr[i]; i++)

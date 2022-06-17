@@ -31,7 +31,7 @@ void argument_error(void)
 
 
 /**
- * stack_error - Error due to empty stack
+ * pint_error - Error due to empty stack
  *
  */
 void pint_error(void)

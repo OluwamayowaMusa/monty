@@ -54,6 +54,7 @@ void instruction_error(char *s);
 void argument_error(void);
 void pint_error(void);
 void pop_error(void);
+void swap_error(void);
 
 /* MEMORY LEAKS FUNCTIONS*/
 void free_args(char **args);
@@ -64,6 +65,7 @@ void op_push(stack_t **stack, unsigned int data);
 void op_pall(stack_t **stack, unsigned int data);
 void op_pint(stack_t **stack, unsigned int data);
 void op_pop(stack_t **stack, unsigned int data);
+void op_swap(stack_t **stack, unsigned int data);
 int op_cmp(char *s);
 
 
