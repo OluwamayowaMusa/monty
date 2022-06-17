@@ -33,6 +33,11 @@ int main(int argc, char *argv[])
 	while (getline(&line, &n, fp) != -1)
 	{
 		args = parse_input(line);
+		if (args[0][0] == '#')
+		{
+			lineNumber++, line = NULL;
+			continue;
+		}
 		func = get_op_func(args[0]);
 		if (func == NULL)
 			instruction_error(args[0]);
@@ -45,8 +50,6 @@ int main(int argc, char *argv[])
 		lineNumber++, line = NULL;
 		free_args(args), args = NULL;
 	}
-	free(line);
-	free_stack(headStack);
-	fclose(fp);
+	free(line), free_stack(headStack), fclose(fp);
 	return (EXIT_SUCCESS);
 }
