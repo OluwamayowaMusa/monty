@@ -20,3 +20,14 @@ void add_error(void)
 	fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 	exit(EXIT_FAILURE);
 }
+
+
+/**
+ * sub_error - Error due to opcode sub
+ *
+ */
+void sub_error(void)
+{
+	fprintf(stderr, "L%d: can't sub, stack too short\n", lineNumber);
+	exit(EXIT_FAILURE);
+}

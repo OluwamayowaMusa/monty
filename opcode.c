@@ -58,7 +58,8 @@ void op_pall(stack_t **stack, unsigned int __attribute__((unused)) data)
  */
 int op_cmp(char *s)
 {
-	char *arr[] = {"pall", "pint", "pop", "swap", "add", "nop", NULL};
+	char *arr[] = {"pall", "pint", "pop", "swap", "add", "nop",
+		       "sub", NULL};
 	int i;
 
 	for (i = 0; arr[i]; i++)
