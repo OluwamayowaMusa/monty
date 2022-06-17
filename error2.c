@@ -51,3 +51,14 @@ void div_error(int num)
 		exit(EXIT_FAILURE);
 	}
 }
+
+
+/**
+ * mul_error - Error due to opcode mul
+ *
+ */
+void mul_error(void)
+{
+	fprintf(stderr, "L%d: can't mul, stack too short\n", lineNumber);
+	exit(EXIT_FAILURE);
+}
