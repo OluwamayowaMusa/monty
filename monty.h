@@ -79,6 +79,7 @@ void op_div(stack_t **stack, unsigned int data);
 void op_mul(stack_t **stack, unsigned int data);
 void op_mod(stack_t **stack, unsigned int data);
 void op_pchar(stack_t **stack, unsigned int data);
+void op_pstr(stack_t **stack, unsigned int data);
 int op_cmp(char *s);
 
 

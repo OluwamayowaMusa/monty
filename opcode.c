@@ -36,6 +36,7 @@ void op_push(stack_t **stack, unsigned int data)
  * @stack: pointer to pointer to stack doubly linked list
  * @data: 0(not important)
  *
+ * B
  */
 void op_pall(stack_t **stack, unsigned int __attribute__((unused)) data)
 {
@@ -59,7 +60,8 @@ void op_pall(stack_t **stack, unsigned int __attribute__((unused)) data)
 int op_cmp(char *s)
 {
 	char *arr[] = {"pall", "pint", "pop", "swap", "add", "nop",
-		       "sub", "div", "mul", "mod", "pchar", NULL};
+		"sub", "div", "mul", "mod", "pchar",
+		"pstr", NULL};
 	int i;
 
 	for (i = 0; arr[i]; i++)

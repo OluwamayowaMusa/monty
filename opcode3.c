@@ -70,3 +70,26 @@ void op_pchar(stack_t **stack, unsigned int __attribute__((unused)) data)
 		pchar_error(0);
 	printf("%c\n", i);
 }
+
+
+/**
+ * op_pstr - Prints the string starting at the top of the stack
+ * @stack: Pointer to pointer to stack (doubly linked list)
+ * @data: 0 (not important)
+ *
+ */
+void op_pstr(stack_t **stack, unsigned int __attribute__((unused)) data)
+{
+	stack_t *temp = NULL;
+
+	temp = *stack;
+	while (temp != NULL)
+	{
+		if (temp->n == 0 ||
+			(temp->n < 0 || temp->n > 127))
+			break;
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+	putchar(10);
+}
