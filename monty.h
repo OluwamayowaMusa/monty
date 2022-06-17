@@ -81,6 +81,7 @@ void op_mod(stack_t **stack, unsigned int data);
 void op_pchar(stack_t **stack, unsigned int data);
 void op_pstr(stack_t **stack, unsigned int data);
 void op_rotl(stack_t **stack, unsigned int data);
+void op_rotr(stack_t **stack, unsigned int data);
 int op_cmp(char *s);
 
 

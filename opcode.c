@@ -61,7 +61,7 @@ int op_cmp(char *s)
 {
 	char *arr[] = {"pall", "pint", "pop", "swap", "add", "nop",
 		"sub", "div", "mul", "mod", "pchar",
-		"pstr", "rotl", NULL};
+		"pstr", "rotl", "rotr", NULL};
 	int i;
 
 	for (i = 0; arr[i]; i++)
