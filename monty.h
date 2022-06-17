@@ -59,6 +59,7 @@ void add_error(void);
 void sub_error(void);
 void div_error(int num);
 void mul_error(void);
+void mod_error(int num);
 
 /* MEMORY LEAKS FUNCTIONS*/
 void free_args(char **args);
@@ -75,6 +76,7 @@ void op_nop(stack_t **stack, unsigned int data);
 void op_sub(stack_t **stack, unsigned int data);
 void op_div(stack_t **stack, unsigned int data);
 void op_mul(stack_t **stack, unsigned int data);
+void op_mod(stack_t **stack, unsigned int data);
 int op_cmp(char *s);
 
 
