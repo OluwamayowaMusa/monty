@@ -23,3 +23,33 @@ void op_rotr(stack_t **stack, unsigned int __attribute__((unused)) data)
 	}
 	*stack = temp2;
 }
+
+
+/**
+ * op_ctrl - Controls the way the data structure will behave(stack or queue)
+ * @s: String passed
+ *
+ * Return: 1 - if a comment
+ *         2 - if a queue
+ *         3 - if a stack
+ *         0 - otherwise
+ */
+int op_ctrl(char *s)
+{
+	if (*s == '#')
+	{
+		lineNumber++;
+		return (1);
+	}
+	else if (strcmp(s, "queue") == 0)
+	{
+		lineNumber++;
+		return (2);
+	}
+	else if (strcmp(s, "stack") == 0)
+	{
+		lineNumber++;
+		return (3);
+	}
+	return (0);
+}

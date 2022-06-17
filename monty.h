@@ -83,6 +83,7 @@ void op_pstr(stack_t **stack, unsigned int data);
 void op_rotl(stack_t **stack, unsigned int data);
 void op_rotr(stack_t **stack, unsigned int data);
 int op_cmp(char *s);
+int op_ctrl(char *s);
 
 
 /* GET OPCODE FUNCTIONS */

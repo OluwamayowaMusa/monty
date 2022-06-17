@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 	FILE *fp; /*File Pointer to file */
 	char *line = NULL, **args = NULL;
 	size_t n = 0;
+	unsigned int ctrl = 1;
 	int val;
 
 	if (argc != 2)
@@ -32,10 +33,17 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&line, &n, fp) != -1)
 	{
-		args = parse_input(line);
-		if (args[0][0] == '#')
+		args = parse_input(line), line = NULL;
+		if (op_ctrl(args[0]) == 1)
+			continue;
+		else if (op_ctrl(args[0]) == 2)
 		{
-			lineNumber++, line = NULL;
+			ctrl = 7727;
+			continue;
+		}
+		else if (op_ctrl(args[0]) == 3)
+		{
+			ctrl = 1;
 			continue;
 		}
 		func = get_op_func(args[0]);
@@ -46,7 +54,7 @@ int main(int argc, char *argv[])
 		else if (!check_digit(args[1]))
 			argument_error();
 		else
-			val = atoi(args[1]), func(&headStack, (unsigned int)val);
+			val = atoi(args[1]), func(&headStack, ((unsigned int)val * ctrl));
 		lineNumber++, line = NULL;
 		free_args(args), args = NULL;
 	}

@@ -8,26 +8,45 @@
  */
 void op_push(stack_t **stack, unsigned int data)
 {
-	stack_t *newStack = NULL;
+	stack_t *newStack = NULL, *temp = *stack;
 	int val = (int)data;
 
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
-
 	newStack = malloc(sizeof(stack_t));
 	if (newStack == NULL)
 		malloc_error();
-	newStack->n = val;
-	newStack->prev = NULL;
-	if (*stack == NULL)
+	if (data % 7727 != 0)
 	{
-		newStack->next = NULL;
+		newStack->n = val;
+		newStack->prev = NULL;
+		if (*stack == NULL)
+		{
+			newStack->next = NULL;
+			*stack = newStack;
+			return;
+		}
+		newStack->next = *stack;
+		(*stack)->prev = newStack;
 		*stack = newStack;
-		return;
 	}
-	newStack->next = *stack;
-	(*stack)->prev = newStack;
-	*stack = newStack;
+	else if (data % 7727 == 0)
+	{
+		data = data / 7727;
+		val = (int)data;
+		newStack->n = val;
+		newStack->next = NULL;
+		if (*stack == NULL)
+		{
+			newStack->prev = NULL;
+			*stack = newStack;
+			return;
+		}
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = newStack;
+		newStack->prev = temp;
+	}
 }
 
 
