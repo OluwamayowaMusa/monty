@@ -52,3 +52,16 @@ void op_add(stack_t **stack, unsigned int __attribute__((unused)) data)
 	free(*stack);
 	*stack = temp1;
 }
+
+
+/**
+ * op_nop - Doesn't do anyhing
+ * @stack: pointer to pointer to stack (doubly linked list)
+ * @data: 0(not important)
+ *
+ */
+void op_nop(stack_t __attribute__((unused))**stack, unsigned int
+		__attribute__((unused)) data)
+{
+	;
+}
