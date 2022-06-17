@@ -51,3 +51,22 @@ void op_mod(stack_t **stack, unsigned int __attribute__((unused)) data)
 	free(*stack);
 	*stack = temp1;
 }
+
+
+/**
+ * op_pchar - Prints the char at the top of the stack
+ * @stack: pointer to pointer to stack (doubly linked list)
+ * @data: 0 (not important)
+ *
+ */
+void op_pchar(stack_t **stack, unsigned int __attribute__((unused)) data)
+{
+	int i;
+
+	if (*stack == NULL)
+		pchar_error(1);
+	i = (*stack)->n;
+	if (i < 0 || i > 127)
+		pchar_error(0);
+	printf("%c\n", i);
+}
