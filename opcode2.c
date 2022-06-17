@@ -91,3 +91,31 @@ void op_sub(stack_t **stack, unsigned int __attribute__((unused)) data)
 	free(*stack);
 	*stack = temp1;
 }
+
+
+/**
+ * op_div - Divide the second top element of the stack by the top element
+ * of the stack
+ * @stack: Pointer to pointer to stack(doubly linked list)
+ * @data: 0(not important)
+ *
+ */
+void op_div(stack_t **stack, unsigned int __attribute__((unused)) data)
+{
+	stack_t *temp = NULL, *temp1 = NULL;
+	int i = 0;
+
+	temp = *stack;
+	while (temp != NULL)
+		temp = temp->next, i++;
+	if (i < 2)
+		div_error(1);
+	temp = *stack;
+	temp1 = temp->next;
+	if (temp->n == 0)
+		div_error(0);
+	temp1->n = temp1->n / temp->n;
+	temp1->prev = NULL;
+	free(*stack);
+	*stack = temp1;
+}
