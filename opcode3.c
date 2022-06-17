@@ -93,3 +93,37 @@ void op_pstr(stack_t **stack, unsigned int __attribute__((unused)) data)
 	}
 	putchar(10);
 }
+
+
+/**
+ * op_rotl - Rotates the stack to the top
+ * @stack: Pointer to pointer to stack (doubly linked list)
+ * @data: 0 (not important)
+ *
+ */
+void op_rotl(stack_t **stack, unsigned int __attribute__((unused)) data)
+{
+	stack_t *temp = NULL, *temp1 = NULL, *temp2 = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	temp = *stack;
+	temp1 = temp->next;
+	temp2 = temp1->next;
+	if (temp2 == NULL)
+	{
+		temp1->next = temp;
+		temp->prev = temp1;
+		temp->next = NULL;
+		temp1->prev = NULL;
+		*stack = temp1;
+		return;
+	}
+	while (temp2->next != NULL)
+		temp2 = temp2->next;
+	temp2->next = temp;
+	temp->prev = temp2;
+	temp->next = NULL;
+	temp1->prev = NULL;
+	*stack = temp1;
+}

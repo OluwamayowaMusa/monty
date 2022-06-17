@@ -22,6 +22,7 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 		{"mod", op_mod},
 		{"pchar", op_pchar},
 		{"pstr", op_pstr},
+		{"rotl", op_rotl},
 		{NULL, NULL}
 	};
 	int i;
