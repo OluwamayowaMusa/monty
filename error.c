@@ -36,7 +36,7 @@ void argument_error(void)
  */
 void pint_error(void)
 {
-	fprintf(stderr, "L%d: can't pint, Stack empty\n", lineNumber);
+	fprintf(stderr, "L%d: can't pint, stack empty\n", lineNumber);
 	exit(EXIT_FAILURE);
 }
 
