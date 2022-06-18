@@ -38,3 +38,24 @@ void pchar_error(int num)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * argument_error - Error due to argument
+ *
+ */
+void argv_error(void)
+{
+	fprintf(stderr, "USAGE: monty file\n");
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * file_error - Error due to file
+ * @s: File name
+ *
+ */
+void file_error(char *s)
+{
+	fprintf(stderr, "Error: Can't open file %s\n", s);
+	exit(EXIT_FAILURE);
+}

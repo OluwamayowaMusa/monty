@@ -38,17 +38,14 @@ int op_ctrl(char *s)
 {
 	if (*s == '#')
 	{
-		lineNumber++;
 		return (1);
 	}
 	else if (strcmp(s, "queue") == 0)
 	{
-		lineNumber++;
 		return (2);
 	}
 	else if (strcmp(s, "stack") == 0)
 	{
-		lineNumber++;
 		return (3);
 	}
 	return (0);

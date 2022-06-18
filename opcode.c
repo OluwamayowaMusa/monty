@@ -16,9 +16,9 @@ void op_push(stack_t **stack, unsigned int data)
 	newStack = malloc(sizeof(stack_t));
 	if (newStack == NULL)
 		malloc_error();
-	if (data % 7727 != 0)
+	newStack->n = val;
+	if (ctrl == 0)
 	{
-		newStack->n = val;
 		newStack->prev = NULL;
 		if (*stack == NULL)
 		{
@@ -30,11 +30,8 @@ void op_push(stack_t **stack, unsigned int data)
 		(*stack)->prev = newStack;
 		*stack = newStack;
 	}
-	else if (data % 7727 == 0)
+	else if (ctrl == 1)
 	{
-		data = data / 7727;
-		val = (int)data;
-		newStack->n = val;
 		newStack->next = NULL;
 		if (*stack == NULL)
 		{
@@ -80,7 +77,7 @@ int op_cmp(char *s)
 {
 	char *arr[] = {"pall", "pint", "pop", "swap", "add", "nop",
 		"sub", "div", "mul", "mod", "pchar",
-		"pstr", "rotl", "rotr", NULL};
+		"pstr", "rotl", "rotr", "stack", "queue", NULL};
 	int i;
 
 	for (i = 0; arr[i]; i++)

@@ -1,7 +1,8 @@
 #include "monty.h"
 
 
-int lineNumber = 1; /* Line Number (Global Variable) */
+int lineNumber = 0; /* Line Number (Global Variable) */
+int ctrl = 0;
 
 /**
  * main - Read Input file line by line
@@ -17,33 +18,29 @@ int main(int argc, char *argv[])
 	FILE *fp; /*File Pointer to file */
 	char *line = NULL, **args = NULL;
 	size_t n = 0;
-	unsigned int ctrl = 1;
 	int val;
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		argv_error();
 	fp = fopen(argv[1], "r"); /* Open for reading */
 	if (fp == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+		file_error(argv[1]);
 	while (getline(&line, &n, fp) != -1)
 	{
+		lineNumber++;
 		args = parse_input(line), line = NULL;
+		if (args == NULL)
+			continue;
 		if (op_ctrl(args[0]) == 1)
 			continue;
 		else if (op_ctrl(args[0]) == 2)
 		{
-			ctrl = 7727;
+			ctrl = 1, free_args(args), args = NULL;
 			continue;
 		}
 		else if (op_ctrl(args[0]) == 3)
 		{
-			ctrl = 1;
+			ctrl = 0, free_args(args), args = NULL;
 			continue;
 		}
 		func = get_op_func(args[0]);
@@ -54,8 +51,8 @@ int main(int argc, char *argv[])
 		else if (!check_digit(args[1]))
 			argument_error();
 		else
-			val = atoi(args[1]), func(&headStack, ((unsigned int)val * ctrl));
-		lineNumber++, line = NULL;
+			val = atoi(args[1]), func(&headStack, ((unsigned int)val));
+		line = NULL;
 		free_args(args), args = NULL;
 	}
 	free(line), free_stack(headStack), fclose(fp);

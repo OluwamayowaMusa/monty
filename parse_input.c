@@ -43,8 +43,12 @@ char **parse_input(char *str)
 	args = malloc(sizeof(char *) * 3);
 	if (args == NULL)
 		malloc_error();
-	s = rmv_newline(str);
-	temp = strtok(s, " ");
+	s = rmv_newline(str), temp = strtok(s, " ");
+	if (temp == NULL)
+	{
+		free(args), free(s);
+		return (NULL);
+	}
 	while (i < 2 && temp != NULL)
 	{
 		args[i] = malloc(sizeof(char) * (strlen(temp) + 1));
@@ -54,15 +58,12 @@ char **parse_input(char *str)
 			{
 				while (i > -1)
 				{
-					i--;
-					free(args[i]);
+					i--, free(args[i]);
 				}
 			}
-			free(args);
-			malloc_error();
+			free(args), malloc_error();
 		}
-		strcpy(args[i], temp);
-		i++;
+		strcpy(args[i], temp), i++;
 		temp = strtok(NULL, " ");
 	}
 	args[i] = NULL;
@@ -87,7 +88,7 @@ int check_digit(char *s)
 {
 	while (*s)
 	{
-		if (!isdigit(*s))
+		if (!isdigit(*s) && *s != '-' && *s != '+')
 			return (0);
 		s++;
 	}

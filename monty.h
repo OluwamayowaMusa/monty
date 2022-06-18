@@ -40,6 +40,7 @@ typedef struct instruction_s
 
 
 extern int lineNumber; /* line number for file */
+extern int ctrl; /* Control the operation of stack(if stack or queue */
 
 /* FUNCTION PROTOTYPES */
 
@@ -49,6 +50,8 @@ char *rmv_newline(char *s);
 int check_digit(char *s);
 
 /* ERROR FUNCTIONS */
+void argv_error(void);
+void file_error(char *s);
 void malloc_error(void);
 void instruction_error(char *s);
 void argument_error(void);
