@@ -32,7 +32,10 @@ int main(int argc, char *argv[])
 		if (args == NULL)
 			continue;
 		if (op_ctrl(args[0]) == 1)
+		{
+			free_args(args);
 			continue;
+		}
 		else if (op_ctrl(args[0]) == 2)
 		{
 			ctrl = 1, free_args(args), args = NULL;

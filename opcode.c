@@ -80,6 +80,8 @@ int op_cmp(char *s)
 		"pstr", "rotl", "rotr", "stack", "queue", NULL};
 	int i;
 
+	if (*s == '#')
+		return (1);
 	for (i = 0; arr[i]; i++)
 	{
 		if (strcmp(s, arr[i]) == 0)
