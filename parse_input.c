@@ -86,6 +86,8 @@ char **parse_input(char *str)
  */
 int check_digit(char *s)
 {
+	if (s == NULL)
+		argument_error();
 	while (*s)
 	{
 		if (!isdigit(*s) && *s != '-' && *s != '+')

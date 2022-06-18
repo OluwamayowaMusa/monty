@@ -40,7 +40,7 @@ void pchar_error(int num)
 }
 
 /**
- * argument_error - Error due to argument
+ * argv_error - Error due to argument
  *
  */
 void argv_error(void)
