@@ -27,8 +27,7 @@ int main(int argc, char *argv[])
 		file_error(argv[1]);
 	while (getline(&line, &n, fp) != -1)
 	{
-		lineNumber++;
-		args = parse_input(line), line = NULL;
+		lineNumber++, args = parse_input(line), line = NULL;
 		if (args == NULL)
 			continue;
 		if (op_ctrl(args[0]) == 1)

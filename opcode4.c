@@ -13,15 +13,15 @@ void op_rotr(stack_t **stack, unsigned int __attribute__((unused)) data)
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 	temp = *stack;
-	while (temp != NULL)
-	{
-		temp1 = temp->next;
-		temp->next = temp2;
-		temp2 = temp;
-		temp2->prev = temp1;
-		temp = temp1;
-	}
-	*stack = temp2;
+	temp1 = temp->next;
+	while (temp1->next != NULL)
+		temp1 = temp1->next;
+	temp2 = temp1->prev;
+	temp2->next = NULL;
+	temp1->next = temp;
+	temp->prev = temp1;
+	temp1->prev = NULL;
+	*stack = temp1;
 }
 
 
