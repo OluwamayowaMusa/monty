@@ -54,7 +54,6 @@ int main(int argc, char *argv[])
 			argument_error();
 		else
 			val = atoi(args[1]), func(&headStack, ((unsigned int)val));
-		line = NULL;
 		free_args(args), args = NULL;
 	}
 	free(line), free_stack(headStack), fclose(fp);
